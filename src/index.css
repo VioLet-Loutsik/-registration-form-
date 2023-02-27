@@ -4,3 +4,6 @@
 html, body {
     font-size: 16px;
 }
+input{
+    border-radius: 0.5rem;
+}

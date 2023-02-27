@@ -38,17 +38,24 @@ const Forms = () => {
         <div>
           <h2 className="formHeaderSecond">Driver Information</h2>
           <form onSubmit={handleSubmit(sendValue)}>
-            <div>
-              <label htmlFor="text">Driver's Name</label>
-              <input
-                type="text"
-                {...register("firstName", {
-                  required: "This field is required",
-                })}
-              />
-              <div>{errors.firstName && <p>{errors.firstName.message}</p>}</div>
-            </div>
-            <div>
+            <div className="lineInput">
+              <div>
+                <label htmlFor="text">Driver's Name</label>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  {...register("firstName", {
+                    required: "This field is required",
+                  })}
+                />
+                <div>
+                  {errors.firstName && <p>{errors.firstName.message}</p>}
+                </div>
+                <label className="form-sub-label" aria-hidden="false">
+                  First Name
+                </label>
+              </div>
               <input
                 type="text"
                 {...register("lastName", {
@@ -61,8 +68,6 @@ const Forms = () => {
               />
               <div>{errors.lastName && <p>{errors.lastName.message}</p>}</div>
             </div>
-
-
 
             <input type="submit" value="submit" />
           </form>
