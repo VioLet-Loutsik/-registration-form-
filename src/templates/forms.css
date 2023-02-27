@@ -1,0 +1,50 @@
+.mainBlock {
+  position: relative;
+}
+.sportCar {
+  position: fixed;
+  margin: auto;
+  margin-left: 21.87rem;
+  height: 43.75rem;
+  width: 50rem;
+  object-fit: contain;
+  background-image: url(../image/redCar.jpg);
+  background-position: center;
+}
+.headerWhite {
+  position: relative;
+  z-index: 1;
+  top: 10px;
+  background-color: white;
+  height: 60px;
+  border: 2px solid rgb(215, 77, 8);
+}
+.formRegistration {
+  position: absolute;
+  border: 2px solid rgb(215, 77, 8);
+  top: 8rem;
+  left: 28.12rem;
+  background-color: rgba(0, 0, 0, 0.771);
+  height: 93.75rem;
+  width: 32.5rem;
+  border-radius: 1.87rem;
+  padding: 1rem 2.5rem;
+}
+.formHeader {
+  background-color: rgb(235, 91, 8);
+  text-align: center;
+  padding: 0.62rem;
+}
+.infoForm {
+  padding: 1rem 0;
+  line-height: 0.5rem;
+}
+.infoInvite {
+  margin-top: 1rem;
+  padding: 1rem 0;
+}
+.formHeaderSecond {
+  background-color: rgb(235, 91, 8);
+  text-align: left;
+  padding: 0.62rem;
+}
