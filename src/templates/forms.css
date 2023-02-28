@@ -12,12 +12,23 @@
   background-position: center;
 }
 .headerWhite {
-  position: relative;
+  position: fixed;
   z-index: 1;
-  top: 0.62rem;
+  /* top: 0.62rem; */
+  /* left: 21.00rem; */
+  top: 0;
+  left: 22.31rem; 
   background-color: white;
   height: 3.75rem;
-  border: 2px solid rgb(215, 77, 8);
+  width: 50rem ;
+  /* border: 2px solid rgb(215, 77, 8); */
+  padding-bottom: 10px;
+}
+h1{
+  color: rgb(9, 18, 111);
+  text-align: center;
+  
+ 
 }
 .formRegistration {
   position: absolute;
@@ -30,6 +41,7 @@
   width: 32.5rem;
   border-radius: 1.87rem;
   padding: 1rem 2.5rem;
+  /* bottom: 22.31rem; */
 }
 .formHeader {
   background-color: rgb(235, 91, 8);
@@ -98,9 +110,17 @@
 .classEmergency{
   height: 1.12rem;
 }
-
-
-
+.dayParticipation{
+  padding: 5px 0;
+}
+.total{
+  display: flex;
+  justify-content: space-between;
+}
+.textareaRelease{
+  background: transparent;
+  border: 1px solid white;
+}
 
 
 

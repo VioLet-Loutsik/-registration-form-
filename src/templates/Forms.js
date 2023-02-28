@@ -13,7 +13,8 @@ const Forms = () => {
   };
   return (
     <div className="mainBlock">
-      <div className="headerWhite">hi</div>
+      <div className="headerWhite">
+        <h1>Car Race Registration Form</h1></div>
       <div className="sportCar"></div>
       <div className="formRegistration">
         <div>
@@ -286,8 +287,7 @@ const Forms = () => {
               <label className="lineBlock">Emergency Person Phone Number</label>
               <div>
                 <input
-                  type="text"
-                  value="00373 "
+                  type="number"
                   className="inputSmall"
                   {...register("areaCode", {
                     required: "This field is required",
@@ -312,68 +312,144 @@ const Forms = () => {
                   {errors.phoneNumber && (
                     <p className="errorMessage">{errors.phoneNumber.message}</p>
                   )}
-                  <label className="lineBlock">Phone Number</label>
                 </div>
+                <label className="lineBlock">Phone Number</label>
               </div>
             </div>
+
             <div className="lineInput">
-              <label className="lineBlock" name="emergency">
+              <label className="lineBlock">
                 Relationship to Emergency Contact Person
               </label>
               <input
                 type="text"
                 className="classEmergency"
-                {...register("emergency", {
-                  require: "This field is require",
+                {...register("emergencyPerson", {
+                  required: "This field is required",
                 })}
               />
-              <div>{errors.emergency && <p>{errors.emergency.message}</p>}</div>
+              <div>
+                {errors.emergencyPerson && (
+                  <p className="errorMessage">
+                    {errors.emergencyPerson.message}
+                  </p>
+                )}
+              </div>
             </div>
 
             <div className="carDetail">
-              <h2 className="formHeader">Car Details</h2>
-              
-              
-              
+              <h2 className="formHeaderSecond">Car Details</h2>
+
               <div className="lineInput">
                 <label className="lineBlock">Make</label>
                 <input
                   type="text"
-                  name="make"
-                  {...register("make", { require: "This field is require" })}
+                  {...register("make", {
+                    required: "This field is required",
+                  })}
                 />
-                <div>{errors.make && <p>{errors.make.message}</p>}</div>
+                <div>
+                  {errors.make && (
+                    <p className="errorMessage">{errors.make.message}</p>
+                  )}
+                </div>
               </div>
-
 
               <div className="lineInput">
                 <label className="lineBlock">Model</label>
                 <input
                   type="text"
-                  name="model"
-                  {...register("model", { require: "This field is require" })}
+                  {...register("model", { required: "This field is required" })}
                 />
-                <div>{errors.model && <p>{errors.model.message}</p>}</div>
+                <div>
+                  {errors.model && (
+                    <p className="errorMessage">{errors.model.message}</p>
+                  )}
+                </div>
               </div>
-
 
               <div className="lineInput">
                 <label className="lineBlock">Year</label>
                 <input
-                  type="year"
-                  name="year"
-                  {...register("year", { require: "This field is require" })}
+                  type="number"
+                  placeholder="dd/mm/yyyy"
+                  {...register("year", { required: "This field is required" })}
                 />
-                <div>{errors.year && <p>{errors.year.message}</p>}</div>
+                <div>
+                  {errors.year && (
+                    <p className="errorMessage">{errors.year.message}</p>
+                  )}
+                </div>
               </div>
 
+              <div className="lineInput">
+                <label className="lineBlock">Car Colore</label>
+                <input type="color" {...register("carColor")} />
+              </div>
 
+              <div className="lineInput">
+                <label className="lineBlock">Modifications</label>
+                <textarea rows="8" cols="40" {...register("modifications")} />
+              </div>
 
-
-
-
-
+              <div className="lineInput">
+                <label className="lineBlock">Licence Plate Number</label>
+                <input
+                  type="number"
+                  {...register("year", { required: "This field is required" })}
+                />
+                <div>
+                  {errors.year && (
+                    <p className="errorMessage">{errors.year.message}</p>
+                  )}
+                </div>
+              </div>
             </div>
+
+            <div className="registrationPayment">
+              <h2 className="formHeaderSecond">Registration Payment</h2>
+              <div className="lineInput">
+                <label className="lineBlock">Registration Fee</label>
+                <div className="blockPayment">
+                <div className="dayParticipation">
+                  <input type="checkbox" {...register("checkboxFirstDay")} />
+                  <label>1Day Participation 200$</label>
+                </div>
+                <div className="dayParticipation">
+                  <input type="checkbox" {...register("checkboxFirstDay")} />
+                  <label>2Day Participation 300$</label>
+                </div>
+                <div className="dayParticipation">
+                  <input type="checkbox" {...register("checkboxFirstDay")} />
+                  <label>3Day Participation 400$</label>
+                </div>
+                <div className="total">
+                  <p>Total</p>
+                  <p>$0.00</p>
+                </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="registrationPayment">
+              <h2 className="formHeaderSecond">Release & Agreement</h2>
+              <div className="lineInput">
+                <label className="lineBlock">Driver's Signature</label>
+              <textarea rows="8" cols="40" className="textareaRelease"{...register("modifications")} />
+              </div>
+              <div className="lineInput">
+              <label className="lineBlock">Date Signed</label>
+              <input type="date" {...register('date')}/>
+              </div>
+              </div>
+            
+
+
+
+
+
+
+
             <input type="submit" value="submit" className="class-submit" />
           </form>
         </div>
