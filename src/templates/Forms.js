@@ -36,40 +36,345 @@ const Forms = () => {
         </div>
 
         <div>
-          <h2 className="formHeaderSecond">Driver Information</h2>
           <form onSubmit={handleSubmit(sendValue)}>
+            <h2 className="formHeaderSecond">Driver Information</h2>
+
             <div className="lineInput">
-              <div>
-                <label htmlFor="text">Driver's Name</label>
-              </div>
+              <label htmlFor="text" className="lineBlock">
+                Driver's Name
+              </label>
               <div>
                 <input
                   type="text"
+                  className="inputSmall"
                   {...register("firstName", {
                     required: "This field is required",
                   })}
                 />
                 <div>
-                  {errors.firstName && <p>{errors.firstName.message}</p>}
+                  {errors.firstName && (
+                    <p className="errorMessage">{errors.firstName.message}</p>
+                  )}
                 </div>
-                <label className="form-sub-label" aria-hidden="false">
-                  First Name
-                </label>
+                <label className="form-sub-label">First Name</label>
               </div>
-              <input
-                type="text"
-                {...register("lastName", {
-                  required: "This field is required",
-                  maxLength: {
-                    value: 20,
-                    message: "Maximum length 20 characters",
-                  },
-                })}
-              />
-              <div>{errors.lastName && <p>{errors.lastName.message}</p>}</div>
+              <div>
+                <input
+                  type="text"
+                  {...register("lastName", {
+                    required: "This field is required",
+                    maxLength: {
+                      value: 30,
+                      message: "Maximum length 20 characters",
+                    },
+                  })}
+                />
+                <div>
+                  {errors.lastName && (
+                    <p className="errorMessage">{errors.lastName.message}</p>
+                  )}
+                </div>
+                <label className="form-sub-label">Last Name</label>
+              </div>
+            </div>
+            <div className="lineInput">
+              <label htmlFor="birthday" className="lineBlock">
+                Date of Birtday
+              </label>
+              <div>
+                <input
+                  type="date"
+                  {...register("dateBirthday", {
+                    required: "This field is required",
+                  })}
+                />
+                <div>
+                  {errors.dateBirthday && (
+                    <p className="errorMessage">
+                      {errors.dateBirthday.message}
+                    </p>
+                  )}
+                </div>
+                <label className="form-sub-label">Date</label>
+              </div>
+            </div>
+            <div className="lineInput">
+              <label htmlFor="phoneNumber" className="lineBlock">
+                Phone Number
+              </label>
+              <div>
+                <input
+                  type="text"
+                  value="00373 "
+                  className="inputSmall"
+                  {...register("areaCode", {
+                    required: "This field is required",
+                  })}
+                />
+
+                <div>
+                  {errors.areaCode && (
+                    <p className="errorMessage">{errors.areaCode.message}</p>
+                  )}
+                </div>
+                <label className="form-sub-label">Area Code</label>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  {...register("phoneNumber", {
+                    required: "This field is required",
+                  })}
+                />
+                <div>
+                  {errors.phoneNumber && (
+                    <p className="errorMessage">{errors.phoneNumber.message}</p>
+                  )}
+                  <label className="lineBlock">Phone Number</label>
+                </div>
+              </div>
+            </div>
+            <div className="lineInput">
+              <label htmlFor="email" className="lineBlock">
+                Email
+              </label>
+              <div>
+                <input
+                  type="email"
+                  className="classEmail"
+                  {...register("email", {
+                    required: "This field is required",
+                  })}
+                />
+
+                <div>
+                  {errors.email && (
+                    <p className="errorMessage">{errors.email.message}</p>
+                  )}
+                </div>
+                <label className="form-sub-label">example@example.com</label>
+              </div>
             </div>
 
-            <input type="submit" value="submit" />
+            <div className="lineInput">
+              <label htmlFor="text" className="lineBlock">
+                Adress
+              </label>
+
+              <div className="blockAdress">
+                <div>
+                  <input
+                    type="text"
+                    className="classEmail"
+                    {...register("adress", {
+                      required: "This field is required",
+                    })}
+                  />
+                  <div>
+                    {errors.adress && (
+                      <p className="errorMessage">{errors.adress.message}</p>
+                    )}
+                  </div>
+                  <label className="form-sub-label">Street Adress 1</label>
+                </div>
+
+                <div className="street-two">
+                  <input
+                    type="text"
+                    className="classEmail"
+                    {...register("adress", {
+                      required: "This field is required",
+                    })}
+                  />
+                  <div>
+                    {errors.adress && (
+                      <p className="errorMessage">{errors.adress.message}</p>
+                    )}
+                  </div>
+                  <label className="form-sub-label">Street Adress 2</label>
+                </div>
+
+                <div className="classCityState">
+                  <div>
+                    <input
+                      type="text"
+                      name="city"
+                      className="inputSmall"
+                      {...register("city", {
+                        required: "This field is required",
+                      })}
+                    />
+                    <div>{errors.city && <p>{errors.city.message}</p>}</div>
+                    <label className="form-sub-label">City</label>
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      name="stateprovence"
+                      {...register("stateprovence", {
+                        required: "This field is required",
+                      })}
+                    />
+                    <div>
+                      {errors.stateprovence && (
+                        <p className="errorMessage">
+                          {errors.stateprovence.message}
+                        </p>
+                      )}
+                    </div>
+                    <label className="form-sub-label">State / Province</label>
+                  </div>
+                </div>
+                <div className="postalZipCode">
+                  <input
+                    type="number"
+                    name="postalZipcode"
+                    {...register("postalZipcode", {
+                      required: "This field is required",
+                    })}
+                  />
+                  <div>
+                    {errors.postalZipcode && (
+                      <p className="errorMessage">
+                        {errors.postalZipcode.message}
+                      </p>
+                    )}
+                  </div>
+                  <label className="form-sub-label">Postal / Zip Code</label>
+                </div>
+              </div>
+            </div>
+
+            <div className="lineInput">
+              <label className="lineBlock">Emergency Contact Person</label>
+              <div>
+                <input
+                  type="text"
+                  className="inputSmall"
+                  {...register("firstName", {
+                    required: "This field is required",
+                  })}
+                />
+                <div>
+                  {errors.firstName && (
+                    <p className="errorMessage">{errors.firstName.message}</p>
+                  )}
+                </div>
+                <label className="form-sub-label">First Name</label>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  {...register("lastName", {
+                    required: "This field is required",
+                    maxLength: {
+                      value: 30,
+                      message: "Maximum length 20 characters",
+                    },
+                  })}
+                />
+                <div>
+                  {errors.lastName && (
+                    <p className="errorMessage">{errors.lastName.message}</p>
+                  )}
+                </div>
+                <label className="form-sub-label">Last Name</label>
+              </div>
+            </div>
+
+            <div className="lineInput">
+              <label className="lineBlock">Emergency Person Phone Number</label>
+              <div>
+                <input
+                  type="text"
+                  value="00373 "
+                  className="inputSmall"
+                  {...register("areaCode", {
+                    required: "This field is required",
+                  })}
+                />
+                <div>
+                  {errors.areaCode && (
+                    <p className="errorMessage">{errors.areaCode.message}</p>
+                  )}
+                </div>
+                <label className="form-sub-label">Area Code</label>
+              </div>
+
+              <div>
+                <input
+                  type="text"
+                  {...register("phoneNumber", {
+                    required: "This field is required",
+                  })}
+                />
+                <div>
+                  {errors.phoneNumber && (
+                    <p className="errorMessage">{errors.phoneNumber.message}</p>
+                  )}
+                  <label className="lineBlock">Phone Number</label>
+                </div>
+              </div>
+            </div>
+            <div className="lineInput">
+              <label className="lineBlock" name="emergency">
+                Relationship to Emergency Contact Person
+              </label>
+              <input
+                type="text"
+                className="classEmergency"
+                {...register("emergency", {
+                  require: "This field is require",
+                })}
+              />
+              <div>{errors.emergency && <p>{errors.emergency.message}</p>}</div>
+            </div>
+
+            <div className="carDetail">
+              <h2 className="formHeader">Car Details</h2>
+              
+              
+              
+              <div className="lineInput">
+                <label className="lineBlock">Make</label>
+                <input
+                  type="text"
+                  name="make"
+                  {...register("make", { require: "This field is require" })}
+                />
+                <div>{errors.make && <p>{errors.make.message}</p>}</div>
+              </div>
+
+
+              <div className="lineInput">
+                <label className="lineBlock">Model</label>
+                <input
+                  type="text"
+                  name="model"
+                  {...register("model", { require: "This field is require" })}
+                />
+                <div>{errors.model && <p>{errors.model.message}</p>}</div>
+              </div>
+
+
+              <div className="lineInput">
+                <label className="lineBlock">Year</label>
+                <input
+                  type="year"
+                  name="year"
+                  {...register("year", { require: "This field is require" })}
+                />
+                <div>{errors.year && <p>{errors.year.message}</p>}</div>
+              </div>
+
+
+
+
+
+
+
+            </div>
+            <input type="submit" value="submit" className="class-submit" />
           </form>
         </div>
       </div>

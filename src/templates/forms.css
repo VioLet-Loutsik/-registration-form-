@@ -14,9 +14,9 @@
 .headerWhite {
   position: relative;
   z-index: 1;
-  top: 10px;
+  top: 0.62rem;
   background-color: white;
-  height: 60px;
+  height: 3.75rem;
   border: 2px solid rgb(215, 77, 8);
 }
 .formRegistration {
@@ -25,7 +25,8 @@
   top: 8rem;
   left: 28.12rem;
   background-color: rgba(0, 0, 0, 0.771);
-  height: 93.75rem;
+  /* height: 93.75rem; */
+  height: fit-content;
   width: 32.5rem;
   border-radius: 1.87rem;
   padding: 1rem 2.5rem;
@@ -34,6 +35,16 @@
   background-color: rgb(235, 91, 8);
   text-align: center;
   padding: 0.62rem;
+}
+.lineBlock{
+  width: 8.12rem;
+}
+.classEmail{
+  width: 18.75rem;
+}
+
+.inputSmall{
+  width: 7.5rem;
 }
 .infoForm {
   padding: 1rem 0;
@@ -50,10 +61,55 @@
 }
 .lineInput{
   display: flex;
-  justify-content: space-around;
+  justify-content: left;
+  padding-top: 1.25rem;
+  gap: 10px;
 }
-
 .form-sub-label{
   margin-left: 0.31rem;
-  font-size: 0.81rem;
+  /* font-size: 0.81rem; */
+}
+.errorMessage{
+  color: rgb(255, 0, 0);
+}
+.blockAdress{
+  display: flex;
+  flex-direction: column;
+
+}
+.street-two{
+  padding-top: 1.25rem;
+}
+.classCityState{
+  display: flex;  
+  gap: 0.62rem;
+  padding-top: 1.25rem;
+
+}
+.input-adress-city{
+  width: 6.25rem;
+}
+.input-adress-state{
+  width: 9.37rem;
+}
+.postalZipCode{
+  padding-top: 1.25rem;
+}
+.classEmergency{
+  height: 1.12rem;
+}
+
+
+
+
+
+
+.class-submit{
+  width: 100px;
+  height: 30px;
+  background-color: red;
+  color: black;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 50px 200px;
 }
