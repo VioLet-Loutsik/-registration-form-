@@ -1,6 +1,7 @@
-import React from "react";
+// import React from "react";
 import "./forms.css";
 import { useForm } from "react-hook-form";
+import React, { useState } from 'react';
 
 const Forms = () => {
   const {
@@ -11,10 +12,20 @@ const Forms = () => {
   const sendValue = (dataInput) => {
     console.log(dataInput);
   };
+
+// onClickFunction
+const [block, setBlock] = useState(true);
+function onClickFunction() {
+
+  setBlock(!block);
+}
+
+const idtochange = block ? "" : "blueColor";
   return (
     <div className="mainBlock">
       <div className="headerWhite">
-        <h1>Car Race Registration Form</h1></div>
+        <h1>Car Race Registration Form</h1>
+      </div>
       <div className="sportCar"></div>
       <div className="formRegistration">
         <div>
@@ -36,18 +47,19 @@ const Forms = () => {
           </div>
         </div>
 
-        <div>
+        <div >
           <form onSubmit={handleSubmit(sendValue)}>
             <h2 className="formHeaderSecond">Driver Information</h2>
 
-            <div className="lineInput">
+            <div className="lineInput" id={idtochange} >
               <label htmlFor="text" className="lineBlock">
                 Driver's Name
               </label>
               <div>
                 <input
-                  type="text"
-                  className="inputSmall"
+                  type="text" onClick={onClickFunction}
+                  className="inputSmall" 
+           
                   {...register("firstName", {
                     required: "This field is required",
                   })}
@@ -78,9 +90,13 @@ const Forms = () => {
                 <label className="form-sub-label">Last Name</label>
               </div>
             </div>
+
+
+
+
             <div className="lineInput">
               <label htmlFor="birthday" className="lineBlock">
-                Date of Birtday
+                Date of Birthday
               </label>
               <div>
                 <input
@@ -99,7 +115,7 @@ const Forms = () => {
                 <label className="form-sub-label">Date</label>
               </div>
             </div>
-            <div className="lineInput">
+            <div className="lineInput" id={idtochange} >
               <label htmlFor="phoneNumber" className="lineBlock">
                 Phone Number
               </label>
@@ -107,7 +123,7 @@ const Forms = () => {
                 <input
                   type="text"
                   value="00373 "
-                  className="inputSmall"
+                  className="inputSmall" onClick={onClickFunction}
                   {...register("areaCode", {
                     required: "This field is required",
                   })}
@@ -131,7 +147,7 @@ const Forms = () => {
                   {errors.phoneNumber && (
                     <p className="errorMessage">{errors.phoneNumber.message}</p>
                   )}
-                  <label className="lineBlock">Phone Number</label>
+                  <label className="form-sub-label">Phone Number</label>
                 </div>
               </div>
             </div>
@@ -142,7 +158,7 @@ const Forms = () => {
               <div>
                 <input
                   type="email"
-                  className="classEmail"
+                  className="classEmail" onfocus="lineInput" onblur="blueColor"
                   {...register("email", {
                     required: "This field is required",
                   })}
@@ -211,7 +227,7 @@ const Forms = () => {
                   <div>
                     <input
                       type="text"
-                      name="stateprovence"
+                      name="stateprovence" className=""
                       {...register("stateprovence", {
                         required: "This field is required",
                       })}
@@ -227,7 +243,7 @@ const Forms = () => {
                   </div>
                 </div>
                 <div className="postalZipCode">
-                  <input
+                  <input 
                     type="number"
                     name="postalZipcode"
                     {...register("postalZipcode", {
@@ -313,7 +329,7 @@ const Forms = () => {
                     <p className="errorMessage">{errors.phoneNumber.message}</p>
                   )}
                 </div>
-                <label className="lineBlock">Phone Number</label>
+                <label className="form-sub-label">Phone Number</label>
               </div>
             </div>
 
@@ -411,46 +427,42 @@ const Forms = () => {
               <div className="lineInput">
                 <label className="lineBlock">Registration Fee</label>
                 <div className="blockPayment">
-                <div className="dayParticipation">
-                  <input type="checkbox" {...register("checkboxFirstDay")} />
-                  <label>1Day Participation 200$</label>
-                </div>
-                <div className="dayParticipation">
-                  <input type="checkbox" {...register("checkboxFirstDay")} />
-                  <label>2Day Participation 300$</label>
-                </div>
-                <div className="dayParticipation">
-                  <input type="checkbox" {...register("checkboxFirstDay")} />
-                  <label>3Day Participation 400$</label>
-                </div>
-                <div className="total">
-                  <p>Total</p>
-                  <p>$0.00</p>
-                </div>
+                  <div className="dayParticipation">
+                    <input type="checkboxFirst" {...register("checkboxFirstDay")} value="200$" />
+                    <label>1Day Participation 200$</label>
+                  </div>
+                  <div className="dayParticipation">
+                    <input type="checkboxSecond" {...register("checkboxFirstDay")} value="300$" />
+                    <label>2Day Participation 300$</label>
+                  </div>
+                  <div className="dayParticipation">
+                    <input type="checkboxThird" {...register("checkboxFirstDay")} value="400$"/>
+                    <label>3Day Participation 400$</label>
+                  </div>
+                  <div className="total">
+                    <p>Total</p>
+                    <p class="result">$0.00</p>
+                  </div>
                 </div>
               </div>
             </div>
-
             <div className="registrationPayment">
               <h2 className="formHeaderSecond">Release & Agreement</h2>
               <div className="lineInput">
                 <label className="lineBlock">Driver's Signature</label>
-              <textarea rows="8" cols="40" className="textareaRelease"{...register("modifications")} />
+                <textarea
+                  rows="8"
+                  cols="40"
+                  className="textareaRelease"
+                  {...register("modifications")}
+                />
               </div>
               <div className="lineInput">
-              <label className="lineBlock">Date Signed</label>
-              <input type="date" {...register('date')}/>
+                <label className="lineBlock">Date Signed</label>
+                <input type="date" {...register("date")} />
               </div>
-              </div>
-            
-
-
-
-
-
-
-
-            <input type="submit" value="submit" className="class-submit" />
+            </div>
+            <input type="submit" value="register" className="class-submit" />
           </form>
         </div>
       </div>

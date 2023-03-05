@@ -1,10 +1,13 @@
 *{
-    color: white;
+    color: rgb(229, 202, 198);
+    font-family: 'Open Sans', sans-serif;
 }
 html, body {
     font-size: 16px;
 }
 input{
     color: black;
-    border-radius: 0.5rem;
+    border-radius: 0.3rem;
+    border: none;
+    background-color: rgb(223, 217, 217);
 }
