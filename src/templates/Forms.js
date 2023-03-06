@@ -1,7 +1,7 @@
 // import React from "react";
 import "./forms.css";
 import { useForm } from "react-hook-form";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Forms = () => {
   const {
@@ -19,8 +19,51 @@ function onClickFunction() {
 
   setBlock(!block);
 }
+// let totalCheckbox = document.querySelector('.total')
+
+// function selectedChechbox() {
+  // let firstCheckbox = document.querySelector('.checkboxFirst')
+  // let secondCheckbox = document.querySelector('.checkboxSecond')
+  // let thirdCheckbox = document.querySelector('.checkboxThird')
+
+
+//   getSum(firstCheckbox, secondCheckbox, thirdCheckbox )  
+
+// }
+
+// function getSum(firstCheckbox, secondCheckbox, thirdCheckbox ) {
+//  let result = (firstCheckbox + secondCheckbox + thirdCheckbox)
+//  totalCheckbox.innerHTML = result;
+// }  
+
 
 const idtochange = block ? "" : "blueColor";
+//   const [totalSelectedCheckboxes, setTotalSelectedCheckboxes] = useState(0); 
+// function selectedCheckbox() {
+//   setTotalSelectedCheckboxes(document.querySelectorAll('input[type=checkbox]:checked').value)
+// }
+// useEffect(() => {
+//   console.log(totalSelectedCheckboxes);
+// }, [totalSelectedCheckboxes]);
+
+// function selectedCheckbox() {
+//   let firstCheckbox = document.querySelector('.checkboxFirst').addEventListener('change', calculateIt1);
+//     let secondCheckbox = document.querySelector('.checkboxSecond').addEventListener('change', calculateIt1);
+//   let thirdCheckbox = document.querySelector('.checkboxThird').addEventListener('change', calculateIt1);
+//   let result = Number(firstCheckbox.value) + Number(secondCheckbox.value) + Number(thirdCheckbox.value)
+//   if ( firstCheckbox.checked,secondCheckbox.checked, thirdCheckbox.checked) {
+//     console.log(result);
+//   }
+// }
+
+const [number1, setNumber1] = useState(200);
+  const [number2, setNumber2] = useState(300);
+  const [number3, setNumber3] = useState(400);
+  const [total, setTotal] = useState(number1 + number2 + number3);
+  function calculateTotal() {
+    setTotal(number1 + number2 + number3);
+  }
+
   return (
     <div className="mainBlock">
       <div className="headerWhite">
@@ -158,7 +201,7 @@ const idtochange = block ? "" : "blueColor";
               <div>
                 <input
                   type="email"
-                  className="classEmail" onfocus="lineInput" onblur="blueColor"
+                  className="classEmail"
                   {...register("email", {
                     required: "This field is required",
                   })}
@@ -428,20 +471,21 @@ const idtochange = block ? "" : "blueColor";
                 <label className="lineBlock">Registration Fee</label>
                 <div className="blockPayment">
                   <div className="dayParticipation">
-                    <input type="checkboxFirst" {...register("checkboxFirstDay")} value="200$" />
+                    <input type="checkbox" className="checkboxFirst"{...register("checkboxFirstDay")} value={number1} onChange={e => setNumber1(+e.target.checked)} />
                     <label>1Day Participation 200$</label>
                   </div>
                   <div className="dayParticipation">
-                    <input type="checkboxSecond" {...register("checkboxFirstDay")} value="300$" />
+                    <input type="checkbox" className="checkboxSecond" {...register("checkboxFirstDay")} value={number2} onChange={e => setNumber2(+e.target.checked)} />
                     <label>2Day Participation 300$</label>
                   </div>
-                  <div className="dayParticipation">
-                    <input type="checkboxThird" {...register("checkboxFirstDay")} value="400$"/>
+                  <div  className="dayParticipation">
+                    <input type="checkbox" className="checkboxThird" {...register("checkboxFirstDay")} value={number3} onChange={e => setNumber3(+e.target.checked)} />
                     <label>3Day Participation 400$</label>
                   </div>
                   <div className="total">
                     <p>Total</p>
-                    <p class="result">$0.00</p>
+                    <p className="result" >${calculateTotal}</p>
+                    <p>{total}</p>
                   </div>
                 </div>
               </div>
@@ -470,4 +514,5 @@ const idtochange = block ? "" : "blueColor";
   );
 };
 
+// result();
 export default Forms;
