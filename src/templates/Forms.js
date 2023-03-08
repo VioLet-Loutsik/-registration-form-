@@ -59,9 +59,15 @@ const idtochange = block ? "" : "blueColor";
 const [number1, setNumber1] = useState(200);
   const [number2, setNumber2] = useState(300);
   const [number3, setNumber3] = useState(400);
-  const [total, setTotal] = useState(number1 + number2 + number3);
+  const [total, setTotal] = useState('');
+  console.log(total);
+  // function functionCalculate(e) {
+
+  // }
+
   function calculateTotal() {
-    setTotal(number1 + number2 + number3);
+  //  setTotal(number1 + number2 + number3);
+    console.log(number1 + number2 + number3); 
   }
 
   return (
@@ -133,10 +139,6 @@ const [number1, setNumber1] = useState(200);
                 <label className="form-sub-label">Last Name</label>
               </div>
             </div>
-
-
-
-
             <div className="lineInput">
               <label htmlFor="birthday" className="lineBlock">
                 Date of Birthday
@@ -471,15 +473,15 @@ const [number1, setNumber1] = useState(200);
                 <label className="lineBlock">Registration Fee</label>
                 <div className="blockPayment">
                   <div className="dayParticipation">
-                    <input type="checkbox" className="checkboxFirst"{...register("checkboxFirstDay")} value={number1} onChange={e => setNumber1(+e.target.checked)} />
+                    <input type="checkbox" className="checkboxFirst"{...register("checkboxFirstDay")} value={number1} />
                     <label>1Day Participation 200$</label>
                   </div>
                   <div className="dayParticipation">
-                    <input type="checkbox" className="checkboxSecond" {...register("checkboxFirstDay")} value={number2} onChange={e => setNumber2(+e.target.checked)} />
+                    <input type="checkbox" className="checkboxSecond" {...register("checkboxFirstDay")} value={number2} />
                     <label>2Day Participation 300$</label>
                   </div>
                   <div  className="dayParticipation">
-                    <input type="checkbox" className="checkboxThird" {...register("checkboxFirstDay")} value={number3} onChange={e => setNumber3(+e.target.checked)} />
+                    <input type="checkbox" className="checkboxThird" {...register("checkboxFirstDay")} value={number3} />
                     <label>3Day Participation 400$</label>
                   </div>
                   <div className="total">
