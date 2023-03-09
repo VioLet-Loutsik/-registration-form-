@@ -63,8 +63,7 @@ const Forms = () => {
               <b>Location:</b> 1379 Horseshoe Lane, Philadelphia, PA, 19108
             </p>
             <p>
-              <b>Race Dates:</b>Race Dates: October 1, 2023 / October 4, 2023 /
-              October 7, 2023
+              Race Dates: Race Dates: October 1, 2023 / October 4, 2023 / October 7, 2023
             </p>
             <p>
               <b>Time:</b> 8:00AM - 5:00PM
