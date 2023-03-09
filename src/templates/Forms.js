@@ -14,61 +14,40 @@ const Forms = () => {
   };
 
 // onClickFunction
-const [block, setBlock] = useState(true);
-function onClickFunction() {
+// const [block, setBlock] = useState(true);
+// function onClickFunction() {
 
-  setBlock(!block);
-}
-// let totalCheckbox = document.querySelector('.total')
-
-// function selectedChechbox() {
-  // let firstCheckbox = document.querySelector('.checkboxFirst')
-  // let secondCheckbox = document.querySelector('.checkboxSecond')
-  // let thirdCheckbox = document.querySelector('.checkboxThird')
-
-
-//   getSum(firstCheckbox, secondCheckbox, thirdCheckbox )  
-
+//   setBlock(!block);
 // }
-
-// function getSum(firstCheckbox, secondCheckbox, thirdCheckbox ) {
-//  let result = (firstCheckbox + secondCheckbox + thirdCheckbox)
-//  totalCheckbox.innerHTML = result;
-// }  
+// const idtochange = block ? "" : "blueColor";
 
 
-const idtochange = block ? "" : "blueColor";
-//   const [totalSelectedCheckboxes, setTotalSelectedCheckboxes] = useState(0); 
-// function selectedCheckbox() {
-//   setTotalSelectedCheckboxes(document.querySelectorAll('input[type=checkbox]:checked').value)
-// }
-// useEffect(() => {
-//   console.log(totalSelectedCheckboxes);
-// }, [totalSelectedCheckboxes]);
-
-// function selectedCheckbox() {
-//   let firstCheckbox = document.querySelector('.checkboxFirst').addEventListener('change', calculateIt1);
-//     let secondCheckbox = document.querySelector('.checkboxSecond').addEventListener('change', calculateIt1);
-//   let thirdCheckbox = document.querySelector('.checkboxThird').addEventListener('change', calculateIt1);
-//   let result = Number(firstCheckbox.value) + Number(secondCheckbox.value) + Number(thirdCheckbox.value)
-//   if ( firstCheckbox.checked,secondCheckbox.checked, thirdCheckbox.checked) {
-//     console.log(result);
-//   }
-// }
-
-const [number1, setNumber1] = useState(200);
+  const [number1, setNumber1] = useState(200);
   const [number2, setNumber2] = useState(300);
   const [number3, setNumber3] = useState(400);
-  const [total, setTotal] = useState('');
-  console.log(total);
+  const [total, setTotal] = useState(0);
+  // console.log(total);
   // function functionCalculate(e) {
-
+  //   if(e.target.checked){
+  //     alert(e.target.value)
+  //   }else{
+  //     alert('select smth')
+  //   }
+  //   console.log(e);
   // }
 
-  function calculateTotal() {
-  //  setTotal(number1 + number2 + number3);
-    console.log(number1 + number2 + number3); 
+  function functionCalculate(e) {
+    if(e.target.checked){
+      setTotal( total + Number(e.target.value))
+    }else{
+      setTotal( total - Number(e.target.value))
+    }
+    console.log(e);
   }
+  // function calculateTotal() {
+  //  setTotal(number1 + number2 + number3);
+  //   // console.log(number1 + number2 + number3); 
+  // }
 
   return (
     <div className="mainBlock">
@@ -99,14 +78,16 @@ const [number1, setNumber1] = useState(200);
         <div >
           <form onSubmit={handleSubmit(sendValue)}>
             <h2 className="formHeaderSecond">Driver Information</h2>
-
-            <div className="lineInput" id={idtochange} >
+            {/* <div className="lineInput" id={idtochange} > */}
+            <div className="lineInput">
               <label htmlFor="text" className="lineBlock">
                 Driver's Name
               </label>
               <div>
                 <input
-                  type="text" onClick={onClickFunction}
+                                  // type="text" onClick={onClickFunction}
+
+                  type="text" 
                   className="inputSmall" 
            
                   {...register("firstName", {
@@ -160,7 +141,8 @@ const [number1, setNumber1] = useState(200);
                 <label className="form-sub-label">Date</label>
               </div>
             </div>
-            <div className="lineInput" id={idtochange} >
+            {/* <div className="lineInput" id={idtochange} > */}
+            <div className="lineInput">
               <label htmlFor="phoneNumber" className="lineBlock">
                 Phone Number
               </label>
@@ -168,7 +150,8 @@ const [number1, setNumber1] = useState(200);
                 <input
                   type="text"
                   value="00373 "
-                  className="inputSmall" onClick={onClickFunction}
+                  // className="inputSmall" onClick={onClickFunction}
+                  className="inputSmall"
                   {...register("areaCode", {
                     required: "This field is required",
                   })}
@@ -473,21 +456,20 @@ const [number1, setNumber1] = useState(200);
                 <label className="lineBlock">Registration Fee</label>
                 <div className="blockPayment">
                   <div className="dayParticipation">
-                    <input type="checkbox" className="checkboxFirst"{...register("checkboxFirstDay")} value={number1} />
+                    <input type="checkbox" className="checkboxFirst"{...register("checkboxFirstDay")} value={number1} onChange={functionCalculate}/>
                     <label>1Day Participation 200$</label>
                   </div>
                   <div className="dayParticipation">
-                    <input type="checkbox" className="checkboxSecond" {...register("checkboxFirstDay")} value={number2} />
+                    <input type="checkbox" className="checkboxSecond" {...register("checkboxFirstDay")} value={number2} onChange={functionCalculate}/>
                     <label>2Day Participation 300$</label>
                   </div>
                   <div  className="dayParticipation">
-                    <input type="checkbox" className="checkboxThird" {...register("checkboxFirstDay")} value={number3} />
+                    <input type="checkbox" className="checkboxThird" {...register("checkboxFirstDay")} value={number3} onChange={functionCalculate}/>
                     <label>3Day Participation 400$</label>
                   </div>
                   <div className="total">
                     <p>Total</p>
-                    <p className="result" >${calculateTotal}</p>
-                    <p>{total}</p>
+                    <p className="result">{total}$</p>
                   </div>
                 </div>
               </div>
